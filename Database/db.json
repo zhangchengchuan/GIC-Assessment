@@ -1,0 +1,11 @@
+{
+    "balance": 100.0,
+    "number_of_transactions": 1,
+    "transactions": [
+        {
+            "time": "Fri Apr 14 04:25:02 2023",
+            "amount": "$100.0",
+            "balance": "$100.0"
+        }
+    ]
+}

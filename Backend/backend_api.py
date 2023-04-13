@@ -1,9 +1,10 @@
 import json
 import time
+import logging
 from typing import Tuple
-from constants import DATABASE, DEPOSIT, WITHDRAW
+from Utils.constants import DATABASE, DEPOSIT, WITHDRAW
 
-def change_account(amount, change_type) -> bool:
+def change_account(amount, change_type) -> Tuple[bool, list]:
     change_amount = 0
     if change_type is DEPOSIT:
         change_amount = amount
@@ -13,10 +14,6 @@ def change_account(amount, change_type) -> bool:
     # Get db instance
     with open(DATABASE, 'r') as db_reader:
         payload = json.load(db_reader) 
-
-    # Guard clause
-    if payload['balance'] + change_amount < 0:
-        return False
     
     status, modified_payload = modify_payload(payload, change_amount)
 
@@ -24,11 +21,12 @@ def change_account(amount, change_type) -> bool:
         # Write new payload to db
         with open(DATABASE, 'w') as db_writer:
             json.dump(modified_payload, db_writer, indent=4)
-        return True
+        logging.info("Successfully written new payload to database")
+        return True, [amount]
     
     # Withdraw greater than balance
     else:
-        return False
+        return False, None
 
 def view_account()->Tuple[bool, list]:
     print("Accessing View Account")
@@ -39,13 +37,16 @@ def view_account()->Tuple[bool, list]:
         transactions = payload['transactions']
     
     if transactions:
+        logging.info("Successfully fetched previous transactions.")
         return (True, transactions)
     else:
+        logging.warning("There is no previous transactions.")
         return (False, None)
 
 def modify_payload(payload, amount) -> Tuple[bool, dict]:
     new_balance = payload['balance'] + amount
     if new_balance < 0:
+        logging.warning("Withdrawal amount greater than balance.")
         return (False, None)
 
     payload['balance'] = new_balance
@@ -56,4 +57,5 @@ def modify_payload(payload, amount) -> Tuple[bool, dict]:
         'balance': f"${new_balance}"
     })
 
+    logging.info("Payload has been modified.")
     return (True, payload)

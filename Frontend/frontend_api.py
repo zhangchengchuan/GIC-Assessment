@@ -1,7 +1,9 @@
 import pickle
+import logging
 import json
-from constants import INPUT_AMOUNT, INPUT_COMMAND, VALID_COMMANDS, QUEUE, DATABASE
+from Utils.constants import INPUT_AMOUNT, INPUT_COMMAND, VALID_COMMANDS, QUEUE, DATABASE
 from typing import Tuple
+
 
 def initialize_bank():
     # Initialize DB
@@ -14,15 +16,16 @@ def initialize_bank():
     }
     json.dump(payload, db_writer)
     db_writer.close()
-    # TODO: Log status
 
     # Initialize Queue
     q_writer = open(QUEUE, 'wb')
     q_writer.truncate(0)
     pickle.dump([], q_writer)
-    # TODO: Log status
+
+    logging.info("Successful Initialization of Database and Queue")
 
 def verify_input(input, input_type) -> Tuple[bool, str]:
+    input = input.strip()
     if input_type == INPUT_COMMAND:
         if input.lower() in VALID_COMMANDS:
             return (True, input.lower())
@@ -44,11 +47,8 @@ def add_to_queue(command):
     current_queue.append(command)
     pickle.dump(current_queue, q_writer)
     q_writer.close()
-    # TODO: Log to logger file
+    logging.info(f"Successfully added {command} to queue.")
 
 def format_output(message) -> None:
     print(f"** {message}\n")
 
-def display(return_values) -> None:
-    for transactions in return_values:
-        print(transactions)

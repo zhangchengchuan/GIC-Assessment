@@ -1,7 +1,7 @@
 import pickle
 from typing import Tuple
-from constants import *
-from command import Withdraw_Command, Deposit_Command, Print_Command
+from Utils.constants import *
+from Backend.command import Withdraw_Command, Deposit_Command, Print_Command
 
 def run_backend() -> Tuple[bool, list]:
     # Get the current queue.
