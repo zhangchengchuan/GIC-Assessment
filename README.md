@@ -18,6 +18,8 @@ This is an assessment of Zhang Cheng Chuan for GIC's IAP application.
 
 4. To view the logs for system processes, they are recorded in `bank.log`.
 
+5. To use the tests, run `pytest frontend_tests.py` or `pytest backend_tests.py`
+
 ## Design
 
 1. **3 Layer application**: This application has a "pseudo" frontend (FE), backend (BE), and database (DB). This is to enable more efficient scaling of the application. As this code is meant to be run on a single machine, the frontend and backend are linked such that a request sent by the FE will trigger the BE to process the query, which I understand is not representative of real-life applications. To simplify the application, the DB is represented as just a simple JSON file.
