@@ -1,10 +1,14 @@
-2023-04-14 04:34:17,237 : INFO :Successful Initialization of Database and Queue
-2023-04-14 04:34:32,850 : INFO :Successfully added <Backend.command.Print_Command object at 0x100e50b90> to queue.
-2023-04-14 04:34:32,850 : WARNING :There is no previous transactions.
-2023-04-14 04:34:34,206 : INFO :Successfully added <Backend.command.Print_Command object at 0x100d16e10> to queue.
-2023-04-14 04:34:34,207 : WARNING :There is no previous transactions.
-2023-04-14 04:34:37,366 : INFO :Successfully added <Backend.command.Deposit_Command object at 0x100d16e10> to queue.
-2023-04-14 04:34:37,366 : INFO :Payload has been modified.
-2023-04-14 04:34:37,366 : INFO :Successfully written new payload to database
-2023-04-14 04:34:38,198 : INFO :Successfully added <Backend.command.Print_Command object at 0x100d16e10> to queue.
-2023-04-14 04:34:38,199 : INFO :Successfully fetched previous transactions.
+2023-04-14 13:39:27,921 : INFO :Successful Initialization of Database and Queue
+2023-04-14 13:39:30,819 : INFO :Successfully added <Backend.command.Deposit_Command object at 0x100ffcc10> to queue.
+2023-04-14 13:39:30,819 : INFO :Payload has been modified.
+2023-04-14 13:39:30,820 : INFO :Successfully written new payload to database
+2023-04-14 13:39:32,869 : INFO :Successfully added <Backend.command.Withdraw_Command object at 0x100f5b490> to queue.
+2023-04-14 13:39:32,869 : INFO :Payload has been modified.
+2023-04-14 13:39:32,869 : INFO :Successfully written new payload to database
+2023-04-14 13:39:34,279 : INFO :Successfully added <Backend.command.Print_Command object at 0x100f5b490> to queue.
+2023-04-14 13:39:34,279 : INFO :Successfully fetched previous transactions.
+2023-04-14 13:39:34,770 : INFO :Successfully added <Backend.command.Print_Command object at 0x100f5b490> to queue.
+2023-04-14 13:39:34,770 : INFO :Successfully fetched previous transactions.
+2023-04-14 13:39:41,731 : INFO :Successfully added <Backend.command.Deposit_Command object at 0x100f5b490> to queue.
+2023-04-14 13:39:41,732 : INFO :Payload has been modified.
+2023-04-14 13:39:41,732 : INFO :Successfully written new payload to database

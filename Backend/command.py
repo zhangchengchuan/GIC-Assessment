@@ -1,9 +1,9 @@
 from typing import Tuple
 from Frontend.frontend_api import format_output
-from Backend.backend_api import change_account, view_account
-from Utils.constants import DEPOSIT, WITHDRAW
+from Backend.backend import change_account, view_account
+from Utils.constants import DEPOSIT, WITHDRAW, PRINT
 
-# Abstract command
+# @abstractmethod
 class Command:
     def execute(self) -> None:
         # Do nothing
@@ -13,6 +13,7 @@ class Command:
 class Deposit_Command(Command):
     def __init__(self, amount) -> None:
         self.amount = amount
+        self.command_type = DEPOSIT
 
     def execute(self) -> Tuple[bool, list]:
         status, amount = change_account(self.amount, DEPOSIT)
@@ -21,6 +22,7 @@ class Deposit_Command(Command):
 class Withdraw_Command(Command):
     def __init__(self, amount) -> None:
         self.amount = amount
+        self.command_type = WITHDRAW
 
     def execute(self) -> Tuple[bool, list]:
         status, amount = change_account(self.amount, WITHDRAW)
@@ -28,7 +30,8 @@ class Withdraw_Command(Command):
 
 class Print_Command(Command):
     def __init__(self) -> None:
-        pass
+        self.command_type = PRINT
+        self.amount = 0
 
     def execute(self) -> Tuple[bool, list]:
         status, transactions = view_account()
