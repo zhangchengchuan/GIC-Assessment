@@ -28,9 +28,9 @@ def display_failure(command_type) -> None:
 
 def display_success(command_type, return_values) -> None:
     if command_type == WITHDRAW:
-        print(f"Successfully withdrawn ${return_values[0]}")
+        print(f"Thank you. ${format(return_values[0], '.2f')} has been withdrawn.")
     elif command_type == DEPOSIT:
-        print(f"Successfully deposited ${return_values[0]}")
+        print(f"Thank you. ${format(return_values[0], '.2f')} has been deposited to your account")
     elif command_type == PRINT:
         # Calculate the column widths because different transaction different length.
         col_widths = [max(len(str(row[col])) for row in return_values) for col in HEADERS]

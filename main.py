@@ -13,9 +13,7 @@ logging.basicConfig(level=logging.DEBUG,
 def main():
     display_welcome()
     initialize_bank()
-    looping = True
-    while looping:
-        format_output("What would you like to do?")
+    while True:
         status, user_input = verify_input(input(), INPUT_COMMAND)
 
         # Guard clause
@@ -23,6 +21,7 @@ def main():
             format_output("Invalid Input. Please try again.")
             continue
 
+        # Termination clause
         if user_input == 'q':
             break
 

@@ -1,21 +1,5 @@
 {
-    "balance": 10000000.0,
-    "number_of_transactions": 3,
-    "transactions": [
-        {
-            "time": "Fri Apr 14 13:39:30 2023",
-            "amount": "10.0",
-            "balance": "10.0"
-        },
-        {
-            "time": "Fri Apr 14 13:39:32 2023",
-            "amount": "-10.0",
-            "balance": "0.0"
-        },
-        {
-            "time": "Fri Apr 14 13:39:41 2023",
-            "amount": "10000000.0",
-            "balance": "10000000.0"
-        }
-    ]
+    "balance": 0,
+    "number_of_transactions": 0,
+    "transactions": []
 }

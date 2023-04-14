@@ -2,18 +2,15 @@ import json
 from Backend.backend import change_account, view_account, modify_payload
 from Utils.constants import DEPOSIT, WITHDRAW, PRINT, DATABASE
 
-
-# Helper function to read the test database
 def read_db():
     with open(DATABASE, "r") as db_reader:
         return json.load(db_reader)
 
-# Helper function to write to the test database
 def write_db(data):
     with open(DATABASE, "w") as db_writer:
         json.dump(data, db_writer, indent=4)
 
-# Set up the test database
+# Set up the database
 def setup_module(module):
     write_db({
         "balance": 0,
